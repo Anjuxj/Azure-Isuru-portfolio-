@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Isuru Anuraga Kuruppu - DevOps & Cloud Engineer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --text-light: #ecf0f1;
+            --bg-dark: #1a252f;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--primary-color) !important;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-light) !important;
+        }
+
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-dark) 100%);
+            color: var(--text-light);
+            padding: 100px 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content h2 {
+            font-size: 1.8rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .social-links {
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--text-light);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        /* Education Section */
+        .education-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            transition: transform 0.3s;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-item h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-item h5 {
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Experience Section */
+        .experience-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .experience-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .company {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-card .date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        .project-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            margin-bottom: 2rem;
+            height: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .project-card-body {
+            padding: 1.5rem;
+        }
+
+        .project-card h4 {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .project-tags {
+            margin-top: 1rem;
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin: 0.2rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--bg-dark) 100%);
+            color: var(--text-light);
+        }
+
+        .contact-info {
+            text-align: center;
+        }
+
+        .contact-info i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home">IAK</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 hero-content">
+                    <h1>Isuru Anuraga Kuruppu</h1>
+                    <h2>DevOps & Cloud Engineer</h2>
+                    <p>Passionate about automating infrastructure, optimizing cloud solutions, and building scalable systems that drive innovation.</p>
+                    <div class="social-links">
+                        <a href="mailto:isuruanuraga@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="https://github.com/IsuruAnuraga" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://linkedin.com/in/isuru-anuraga-sri-kuruppu/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="education-item">
+                        <h4>MSc in Computer Science (Reading)</h4>
+                        <h5>University of Staffordshire</h5>
+                        <p class="text-muted">Master's Degree in Computer Science with a focus on advanced computing concepts and research.</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="education-item">
+                        <h4>BSc Hons Software Engineering</h4>
+                        <h5>University of Plymouth</h5>
+                        <p class="text-muted">Bachelor's Degree with Honours in Software Engineering, building a strong foundation in software development principles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experience</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="experience-card">
+                        <h4>DevOps Engineer</h4>
+                        <p class="company">Tech Solutions Ltd.</p>
+                        <p class="date">2022 - Present</p>
+                        <ul>
+                            <li>Designed and implemented CI/CD pipelines using Jenkins and GitLab CI</li>
+                            <li>Managed AWS infrastructure including EC2, S3, RDS, and Lambda</li>
+                            <li>Automated deployment processes reducing deployment time by 60%</li>
+                            <li>Implemented monitoring solutions using Prometheus and Grafana</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <h4>Cloud Infrastructure Engineer</h4>
+                        <p class="company">Digital Innovations Inc.</p>
+                        <p class="date">2020 - 2022</p>
+                        <ul>
+                            <li>Migrated on-premise infrastructure to AWS cloud</li>
+                            <li>Implemented Infrastructure as Code using Terraform</li>
+                            <li>Configured Kubernetes clusters for containerized applications</li>
+                            <li>Improved system reliability and reduced downtime by 40%</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-card">
+                        <h4>Junior DevOps Engineer</h4>
+                        <p class="company">StartUp Tech</p>
+                        <p class="date">2019 - 2020</p>
+                        <ul>
+                            <li>Assisted in setting up development and staging environments</li>
+                            <li>Wrote automation scripts using Python and Bash</li>
+                            <li>Supported deployment activities and troubleshooting</li>
+                            <li>Collaborated with development teams on infrastructure requirements</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projects</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h4>Cloud Infrastructure Automation</h4>
+                            <p>Automated AWS infrastructure provisioning using Terraform and Ansible. Implemented auto-scaling groups and load balancers for high availability.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">AWS</span>
+                                <span class="project-tag">Terraform</span>
+                                <span class="project-tag">Ansible</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h4>CI/CD Pipeline Implementation</h4>
+                            <p>Built comprehensive CI/CD pipelines using Jenkins and GitLab CI. Integrated automated testing, security scanning, and deployment to multiple environments.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Jenkins</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">GitLab CI</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h4>Kubernetes Cluster Setup</h4>
+                            <p>Deployed and managed production-grade Kubernetes clusters. Implemented service mesh using Istio and configured monitoring with Prometheus.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Kubernetes</span>
+                                <span class="project-tag">Istio</span>
+                                <span class="project-tag">Prometheus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h4>Monitoring & Logging Solution</h4>
+                            <p>Designed centralized monitoring and logging infrastructure using ELK stack and Grafana. Created custom dashboards for real-time system insights.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">ELK Stack</span>
+                                <span class="project-tag">Grafana</span>
+                                <span class="project-tag">Prometheus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h4>Microservices Deployment</h4>
+                            <p>Containerized microservices architecture using Docker and deployed on AWS ECS. Implemented service discovery and API gateway.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">AWS ECS</span>
+                                <span class="project-tag">Microservices</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6">
+                    <div class="project-card">
+                        <div class="project-card-body">
+                            <h4>Infrastructure Security Automation</h4>
+                            <p>Automated security compliance checks and vulnerability scanning. Implemented security best practices across cloud infrastructure.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Security</span>
+                                <span class="project-tag">Automation</span>
+                                <span class="project-tag">AWS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: var(--text-light);">Get In Touch</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead mb-5">I'm always interested in hearing about new opportunities and collaborations. Feel free to reach out!</p>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="contact-info">
+                                <i class="fas fa-envelope"></i>
+                                <h4>Email</h4>
+                                <a href="mailto:isuruanuraga@gmail.com" style="color: var(--text-light);">isuruanuraga@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="contact-info">
+                                <i class="fab fa-github"></i>
+                                <h4>GitHub</h4>
+                                <a href="https://github.com/IsuruAnuraga" target="_blank" style="color: var(--text-light);">IsuruAnuraga</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="contact-info">
+                                <i class="fab fa-linkedin"></i>
+                                <h4>LinkedIn</h4>
+                                <a href="https://linkedin.com/in/isuru-anuraga-sri-kuruppu/" target="_blank" style="color: var(--text-light);">Connect with me</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Isuru Anuraga Kuruppu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const navHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = target.offsetTop - navHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse');
+                    if (navbarCollapse.classList.contains('show')) {
+                        navbarCollapse.classList.remove('show');
+                    }
+                }
+            });
+        });
+
+        // Active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
